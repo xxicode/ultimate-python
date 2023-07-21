@@ -24,7 +24,7 @@ def main():
     assert letters[1:] == ["b", "c", "d", "e"]
     assert letters[:-1] == ["a", "b", "c", "d"]
     assert letters[1:-2] == ["b", "c"]
-    assert letters[0:3:2] == ["a", "c"]
+    assert letters[:3:2] == ["a", "c"]
     assert letters[::2] == ["a", "c", "e"]
     assert letters[::-2] == ["e", "c", "a"]
     assert letters[::-1] == ["e", "d", "c", "b", "a"]
@@ -78,11 +78,7 @@ def main():
     for row in matrix:
         assert len(matrix) == len(row)
 
-    # Notice that lists have variable length and can be modified to have
-    # more elements. Lists can also be modified to have less elements
-    lengthy = []
-    for i in range(5):
-        lengthy.append(i)  # add 0..4 to the back
+    lengthy = list(range(5))
     assert lengthy == [0, 1, 2, 3, 4]
     lengthy.pop()  # pop out the 4 from the back
     assert lengthy == [0, 1, 2, 3]

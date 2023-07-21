@@ -22,12 +22,7 @@ def main():
     # Each student has a name key and a GPA value
     assert len(student_gpa.keys()) == len(student_gpa.values())
 
-    # We can get the names in isolation. Note that in Python 3.7 and
-    # above, dictionary entries are sorted in the order that they were
-    # defined or inserted
-    student_names = []
-    for student in student_gpa.keys():
-        student_names.append(student)
+    student_names = list(student_gpa)
     assert student_names == ["john", "jane", "bob", "mary"]
 
     # We can check that `student_gpa` has the names that were stored
@@ -35,10 +30,7 @@ def main():
     for student in student_names:
         assert student in student_gpa
 
-    # We can get the GPAs in isolation
-    gpa_values = []
-    for gpa in student_gpa.values():
-        gpa_values.append(gpa)
+    gpa_values = list(student_gpa.values())
     assert gpa_values == [3.5, _GPA_MAX, 2.8, 3.2]
 
     # We can get the GPA for a specific student
@@ -60,7 +52,7 @@ def main():
     # Let's remove all the students
     for student in student_names:
         student_gpa.pop(student)
-    assert len(student_gpa) == 0
+    assert not student_gpa
 
     # Let's add all the students back in
     for student, gpa in zip(student_names, gpa_binary):

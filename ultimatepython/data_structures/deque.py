@@ -29,9 +29,9 @@ def main():
         dq.appendleft(i * 2)
 
     # A deque can be iterated over to build any data structure
-    assert [el for el in dq] == [8, 6, 4, 2, 1, 2, 3, 4]
-    assert tuple(el for el in dq) == (8, 6, 4, 2, 1, 2, 3, 4)
-    assert {el for el in dq} == {8, 6, 4, 2, 1, 3}
+    assert list(dq) == [8, 6, 4, 2, 1, 2, 3, 4]
+    assert tuple(dq) == (8, 6, 4, 2, 1, 2, 3, 4)
+    assert set(dq) == {8, 6, 4, 2, 1, 3}
 
     # A deque can be used as a stack
     # https://en.wikipedia.org/wiki/Stack_(abstract_data_type)

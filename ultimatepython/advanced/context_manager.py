@@ -73,7 +73,7 @@ def main():
                 raise RuntimeError("System crash. Abort!")
         except RuntimeError:
             call_failed = True
-        assert call_failed is True
+        assert call_failed
 
 
 if __name__ == "__main__":

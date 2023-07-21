@@ -7,10 +7,8 @@ extended and shortened.
 
 def main():
     # Let's define one `set` for starters
-    simple_set = {0, 1, 2}
+    simple_set = {0, 1, 2, 3}
 
-    # A set is dynamic like a `list` and `tuple`
-    simple_set.add(3)
     simple_set.remove(0)
     assert simple_set == {1, 2, 3}
 
@@ -58,8 +56,8 @@ def main():
     multiples_two_exclusive = multiples_two.difference(multiples_four)
     multiples_two_exclusive_shorthand = multiples_two - multiples_four
     multiples_four_exclusive = multiples_four.difference(multiples_two)
-    assert len(multiples_two_exclusive) > 0
-    assert len(multiples_four_exclusive) > 0
+    assert multiples_two_exclusive
+    assert multiples_four_exclusive
     assert len(multiples_two_exclusive_shorthand) > 0
 
     # Numbers in this bracket are greater than 2 * 9 and less than 4 * 10

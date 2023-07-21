@@ -27,10 +27,7 @@ def sum_until(fn, n):
     concept that was mentioned before: everything in Python is an object, and
     that includes this docstring!
     """
-    total = 0
-    for i in range(n):
-        total += fn(i)
-    return total
+    return sum(fn(i) for i in range(n))
 
 
 def main():

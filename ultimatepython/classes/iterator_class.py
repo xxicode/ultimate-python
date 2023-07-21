@@ -116,13 +116,12 @@ def employee_generator(top_employee):
     """
     to_visit = [top_employee]
     visited = set()
-    while len(to_visit) > 0:
+    while to_visit:
         employee = to_visit.pop()
         if employee.name in visited:
             raise IterationError(_ITERATION_MESSAGE)
         visited.add(employee.name)
-        for report in employee.direct_reports:
-            to_visit.append(report)
+        to_visit.extend(iter(employee.direct_reports))
         yield employee
 
 
@@ -135,8 +134,8 @@ def main():
 
     # We should provide the same three employees in the same order regardless
     # of whether we use the iterator class or the generator function
-    employees = [emp for emp in EmployeeIterator(manager)]
-    assert employees == [emp for emp in employee_generator(manager)]
+    employees = list(EmployeeIterator(manager))
+    assert employees == list(employee_generator(manager))
     assert len(employees) == 3
 
     # Make sure that the employees are who we expect them to be
@@ -153,7 +152,7 @@ def main():
         except IterationError as e:
             call_failed = True
             assert str(e) == _ITERATION_MESSAGE
-        assert call_failed is True
+        assert call_failed
 
 
 if __name__ == "__main__":

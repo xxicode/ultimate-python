@@ -65,7 +65,7 @@ async def schedule_jobs():
     except asyncio.exceptions.CancelledError:
         assert single_task.cancelled()
         task_failed = True
-    assert task_failed is True
+    assert task_failed
 
     # Gather coroutines for batch start
     batch_jobs = [start_job(uuid4().hex, _DELAY_SMALL) for _ in range(10)]

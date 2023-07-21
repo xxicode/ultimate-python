@@ -56,7 +56,7 @@ def main():
     ps.print_stats()
     time_sleep_called = any("60" in line and "time.sleep" in line
                             for line in buffer.getvalue().split("\n"))
-    assert time_sleep_called is True
+    assert time_sleep_called
 
 
 if __name__ == "__main__":

@@ -27,7 +27,7 @@ def main():
     # create new tuples from existing tuples
     bigger_immutable = immutable + (5, 6)
     assert bigger_immutable == (1, 2, 3, 4, 5, 6)
-    smaller_immutable = immutable[0:2]
+    smaller_immutable = immutable[:2]
     assert smaller_immutable == (1, 2)
 
     # We use tuples when the number of items is consistent. An example

@@ -34,9 +34,9 @@ class ModelMeta(type):
     # Model table registry
     tables = {}
 
-    def __new__(mcs, name, bases, attrs):
+    def __new__(cls, name, bases, attrs):
         """Factory for modifying the defined class at runtime."""
-        kls = super().__new__(mcs, name, bases, attrs)
+        kls = super().__new__(cls, name, bases, attrs)
 
         # Abstract model does not have a `model_name` but a real model does.
         # We will leverage this fact later on this routine
@@ -53,7 +53,7 @@ class ModelMeta(type):
 
         # Fill model fields from the parent classes (left-to-right)
         for base in bases:
-            kls.model_fields.update(base.model_fields)
+            kls.model_fields |= base.model_fields
 
         # Fill model fields from itself
         kls.model_fields.update({
