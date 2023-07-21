@@ -106,7 +106,7 @@ def main():
         type("MissingPlayer", (ConfusedPlayer, IndecisivePlayer), {})
     except TypeError:
         class_creation_failed = True
-    assert class_creation_failed is True
+    assert class_creation_failed
 
 
 if __name__ == "__main__":

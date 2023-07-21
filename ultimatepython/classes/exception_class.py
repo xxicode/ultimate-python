@@ -68,7 +68,7 @@ def main():
         except DivisionError as e:
             division_failed = True
             assert str(e).startswith("Non-positive")
-        assert division_failed is True
+        assert division_failed
 
     # Now let's do it correctly to skip all the exceptions
     result = divide_positive_numbers(1, 1)

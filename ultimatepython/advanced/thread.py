@@ -33,7 +33,7 @@ def run_thread_workers(work, data):
 
 
 def main():
-    original_data = {num for num in range(5)}
+    original_data = set(range(5))
     expected_data = {(item * 2) for item in original_data}
 
     # Let's get the data using the simple approach

@@ -107,7 +107,7 @@ def main():
         hide_content([1])
     except ValueError:
         input_failed = True
-    assert input_failed is True
+    assert input_failed
 
 
 if __name__ == "__main__":

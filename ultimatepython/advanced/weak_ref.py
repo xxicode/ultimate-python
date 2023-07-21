@@ -36,7 +36,7 @@ class ServerRegistry:
     @property
     def servers(self):
         """Get set of added servers."""
-        return {s for s in self._servers}
+        return set(self._servers)
 
     @property
     def server_count(self):

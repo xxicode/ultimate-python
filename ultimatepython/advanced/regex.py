@@ -34,13 +34,13 @@ def main():
     assert re.match(r"[123]+", _TEXT_ABC123) is None
 
     # Running `match` with "[abc]+" has a match for abc
-    assert re.match(r"[abc]+", _TEXT_ABC123).group(0) == "abc"
+    assert re.match(r"[abc]+", _TEXT_ABC123)[0] == "abc"
 
     # Running `fullmatch` with "[\w]+" has nothing
     assert re.fullmatch(r"[\w]+", _TEXT_BYE) is None
 
     # Running `fullmatch` with "[\w ]+" has a full match
-    assert re.fullmatch(r"[\w ]+", _TEXT_BYE).group(0) == _TEXT_BYE
+    assert re.fullmatch(r"[\w ]+", _TEXT_BYE)[0] == _TEXT_BYE
 
     # To learn more about regular expressions:
     # https://en.wikipedia.org/wiki/Regular_expression

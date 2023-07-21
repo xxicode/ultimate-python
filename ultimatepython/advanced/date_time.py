@@ -76,7 +76,7 @@ def main():
         _ = utc_dt - naive_dt
     except TypeError:
         calc_failed = True
-    assert calc_failed is True
+    assert calc_failed
 
     # But we can change the timezone of an offset-naive datetime object
     # first before running operations on them

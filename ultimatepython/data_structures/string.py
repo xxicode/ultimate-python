@@ -13,10 +13,10 @@ def main():
     content = "Ultimate Python study guide"
 
     # We can compute the length of a string just like all other data structures
-    assert len(content) > 0
+    assert content != ""
 
     # We can use range slices to get substrings from a string
-    assert content[:8] == "Ultimate"
+    assert content.startswith("Ultimate")
     assert content[9:15] == "Python"
     assert content[::-1] == "ediug yduts nohtyP etamitlU"
 
